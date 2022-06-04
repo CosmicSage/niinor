@@ -1,3 +1,8 @@
+/* This whole situation took 1 week extra due to this entire operation being run on a laggy free testnet
+my advice to a lucky novice would be 1) that you're extremely fortunate to be here 2) Don't read this file past line 4(a k lock has been imposed reader beware) and 3)  enable advanced gas settings on metamask and
+then pump gas as per need for quick turnaround. Due to lag I spent gigaton of time wondering what's wrong with my apporach as in there being
+some sinister cause behind failures of my approach.
+*/
 
 let oa = await contract.owner();
 await contract.contributions(oa).then(function(balance) { balanceInstance = balance});
