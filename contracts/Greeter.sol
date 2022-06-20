@@ -6,6 +6,8 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 contract Greeter {
     string private greeting;
+    // A lookup sake public var
+    string public joke = "a joke";
 
     constructor(string memory _greeting) {
         console.log("Deploying a Greeter with greeting:", _greeting);
@@ -14,7 +16,8 @@ contract Greeter {
 
     function logo() public {
       uint256 blockValue = uint256(blockhash(block.number - 1)) / 3;
-      uint256 bh = uint256(blockhash(block.number));
+      // uint256 bh = uint256(blockhash(block.number));
+      uint256 bh = block.number;
       // can some find another way of looggin instead of shitty log by varibale name
       console.log("Blockhash :  %s, Division: %s", bh, blockValue);
       // console.log("Blockhash :  %s", );
