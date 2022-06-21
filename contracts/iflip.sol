@@ -18,18 +18,52 @@ contract CallFlip {
     uint256 FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;
 
     function flip() payable  external {
+        // loop test
         // while(i < 10) {
         //     console.log("Iterator is %s", i);
         //     i++;
 
         // }
-        while(i < 10) {
-            // Trying interface Call
-            // Simple lookup/read on remote/external contract
-            uint256 wins = ICoinFlip(_CoinFlipLocation).consecutiveWins();
-            console.log("Wins is %s", wins);
-            i++;
-        }
+        
+        // read-only interface test
+        // while(i < 10) {
+        //     // Trying interface Call
+        //     // Simple lookup/read on remote/external contract
+        //     uint256 wins = ICoinFlip(_CoinFlipLocation).consecutiveWins();
+        //     console.log("Wins is %s", wins);
+        //     i++;
+        // }
+
+        // transaction oriented interface test with a loop
+        // May not work cuz lastHash Check which reverts if hash stay same as last hash 
+        // this happens when mulitple calls in one execution run of a  loop in contract
+        // while(i < 10) {
+        //     // calculate blockhash of last block like prng of contract
+        //     uint256 blockValue = uint256(blockhash(block.number - 1));
+        //     uint256 division = blockValue / FACTOR;
+        //     console.log("Result of division : %s", division);
+        //     bool side = division == 1 ? true : false;
+        //     // Now call flip and pass side
+        //     ICoinFlip(_CoinFlipLocation).flip(side);
+        //     uint256 wins = ICoinFlip(_CoinFlipLocation).consecutiveWins();
+        //     console.log("Wins after contract guess is: %s", wins);
+        //     i++;
+        // }
+
+        // transaction oriented interface test
+        // calculate blockhash of last block like prng of contract
+        // winner
+        uint256 blockValue = uint256(blockhash(block.number - 1));
+        uint256 division = blockValue / FACTOR;
+        console.log("Result of division : %s", division);
+        bool side = division == 1 ? true : false;
+        // Now call flip and pass side
+        ICoinFlip(_CoinFlipLocation).flip(side);
+        uint256 wins = ICoinFlip(_CoinFlipLocation).consecutiveWins();
+        console.log("Wins after contract guess is: %s", wins);
+
+
+        // }
         
 
         // while(i < 10) {
