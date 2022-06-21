@@ -10,3 +10,4 @@ scripts
 hardhat.config.js
 cache
 artifacts
+secret.json
