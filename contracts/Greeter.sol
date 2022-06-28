@@ -30,6 +30,13 @@ contract Greeter {
         return greeting;
     }
 
+    // For the saze of kin
+    function lemmeknow() public returns (address) {
+        // bytes storage calleddata = msg.data;
+        console.log("Just lemme know");
+        return msg.sender;
+    }
+
     function setGreeting(string memory _greeting) public {
         console.log("Changing greeting from '%s' to '%s'", greeting, _greeting);
         greeting = _greeting;
