@@ -33,7 +33,16 @@ contract Kin {
         King instance = King(_instance);
         (bool result,) = address(instance).call{value:eth, gas:1000000}("");
         console.log("card result : %s", result);
+        (bool result1,) = _instance.call{value:eth, gas:1000000}("");
+        console.log("card result1 : %s", result1);
+
         !result;
         return instance._king() != address(this);
   }
+  
+  receive() external payable {
+
+  }
+
+  // recieve receive receive
 }
