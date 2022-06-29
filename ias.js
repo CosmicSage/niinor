@@ -6,10 +6,7 @@ let accounts = await ethers.provider.listAccounts();
 (await ethers.provider.getBalance(accounts[0])).toString();
 
 // To impersonate
-await hre.network.provider.request({
-  method: "hardhat_impersonateAccount",
-  params: ["0x364d6D0333432C3Ac016Ca832fb8594A8cE43Ca6"],
-});
+await hre.network.provider.request({method: "hardhat_impersonateAccount",params: [accounts[7]]});
 
 // To send money
 await hre.network.provider.request({
@@ -34,9 +31,8 @@ await hre.network.provider.request({
     // "gas": "0x76c0", // 30400
     // "gasPrice": "0x9184e72a000", // 10000000000000
     // "value" : ""
-    "value": "0x9184e7", // 2441406250 idk what this is 
+    "value": `0x${1e+12.toString(16)}`, // 2441406250 idk what this is
     // "data": "0xdd365b8b"
   }],
 });
 }
-
