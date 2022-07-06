@@ -26,13 +26,13 @@ await hre.network.provider.request({
 await hre.network.provider.request({
   method: "eth_sendTransaction",
   params: [{
-    "from": accounts[7],
-    "to": king.address,
+    "from": accounts[0],
+    "to": k.address,
     // "gas": "0x76c0", // 30400
     // "gasPrice": "0x9184e72a000", // 10000000000000
     // "value" : ""
-    "value": `0x${1e+12.toString(16)}`, // 2441406250 idk what this is
-    // "data": "0xdd365b8b"
+    "value": `0x${1e+10.toString(16)}`, // 2441406250 idk what this is
+    "data": "0x20755ce80000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000002a30783865463344336464463235383732363843614635626536423030346139374435386363334463633100000000000000000000000000000000000000000000"
   }],
 });
 }
