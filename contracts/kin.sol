@@ -52,7 +52,10 @@ contract Kin {
         return instance._king() != address(this);
   }
   
-  receive() external payable {
+  // not my work
+  function cheating(address _instance) payable public {
+    (bool result, bytes memory data) = _instance.call{value:msg.value}("");
+    if (!result) revert();
 
   }
 
