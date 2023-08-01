@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 import "hardhat/console.sol";
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+// import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 // Writing an interface so function calls get executed in the same block for right predictions
 interface ICoinFlip {
@@ -24,7 +24,7 @@ contract CallFlip {
         //     i++;
 
         // }
-        
+
         // read-only interface test
         // while(i < 10) {
         //     // Trying interface Call
@@ -35,7 +35,7 @@ contract CallFlip {
         // }
 
         // transaction oriented interface test with a loop
-        // May not work cuz lastHash Check which reverts if hash stay same as last hash 
+        // May not work cuz lastHash Check which reverts if hash stay same as last hash
         // this happens when mulitple calls in one execution run of a  loop in contract
         // while(i < 10) {
         //     // calculate blockhash of last block like prng of contract
@@ -64,7 +64,7 @@ contract CallFlip {
 
 
         // }
-        
+
 
         // while(i < 10) {
         //     uint256 blockvalue = uint256(blockhash(block.number - 1));
@@ -86,8 +86,8 @@ contract CallFlip {
         // calling the FLIP by the interface
         // for (uint256 i = 0; i < 10; i++) {
         //     blockhash(blockNumber);
-            
+
         // }
-        
+
     }
 }
